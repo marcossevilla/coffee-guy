@@ -25,12 +25,12 @@ nav .sidenav-trigger {
     color: var(--title);
 }
 
-/* recipe styles */
-.recipes {
+/* coffee styles */
+.coffees {
     margin-top: 20px;
 }
 
-.card-panel.recipe {
+.card-panel.coffee {
     border-radius: 8px;
     padding: 10px;
     box-shadow: 0px 1px 3px rgba(90, 90, 90, 0.1);
@@ -40,32 +40,32 @@ nav .sidenav-trigger {
     position: relative;
 }
 
-.recipe img {
+.coffee img {
     grid-area: image;
     max-width: 60px;
 }
 
-.recipe-details {
+.coffee-details {
     grid-area: details;
     margin-top: 6px;
 }
 
-.recipe-delete {
+.coffee-delete {
     grid-area: delete;
     position: absolute;
     bottom: 0px;
     right: 0px;
 }
 
-.recipe-delete i {
+.coffee-delete i {
     font-size: 18px;
 }
 
-.recipe-title {
+.coffee-title {
     font-weight: bold;
 }
 
-.recipe-ingredients {
+.coffee-ingredients {
     font-size: 0.8em;
 }
 

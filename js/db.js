@@ -9,6 +9,8 @@ db.collection('coffee').onSnapshot((snapshot) => {
         if (change.type === 'added') {
             // add the document data to the web app
 
+            renderCoffee(change.doc.data(), change.doc.id);
+
         } else if (change.type === 'removed') {
             // remove the document data from the web app
 
