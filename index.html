@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coffee Guy</title>
     <!-- materialize icons, css & js -->
@@ -100,8 +100,33 @@
         </form>
     </div>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBuTEeXZLJ1da3coTc7Ddi1EjQva-KjTas",
+            authDomain: "coffee-guy-pwa.firebaseapp.com",
+            databaseURL: "https://coffee-guy-pwa.firebaseio.com",
+            projectId: "coffee-guy-pwa",
+            storageBucket: "coffee-guy-pwa.appspot.com",
+            messagingSenderId: "207799445962",
+            appId: "1:207799445962:web:b41286c5df5f9dc9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.firestore();
+    </script>
+
     <script src="/js/app.js"></script>
     <script src="/js/ui.js"></script>
+    <script src="/js/db.js"></script>
 
 </body>
 
