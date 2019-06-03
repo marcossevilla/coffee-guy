@@ -1,3 +1,19 @@
+// offline data
+db.enablePersistence()
+    .catch(function (err) {
+        if (err.code == 'failed-precondition') {
+            // Multiple tabs open, persistence can only be enabled
+            // in one tab at a a time.
+            // ...
+            console.log('persistence failed');
+        } else if (err.code == 'unimplemented') {
+            // The current browser does not support all of the
+            // features required to enable persistence
+            // ...
+            console.log('persistence not available');
+        }
+    });
+
 // real-time listener
 db.collection('coffee').onSnapshot((snapshot) => {
     // console.log(snapshot.docChanges());
@@ -16,6 +32,23 @@ db.collection('coffee').onSnapshot((snapshot) => {
 
         }
     });
-
-
 })
+
+// adding a new coffee
+const form = document.querySelector('form');
+form.addEventListener('submit', evt => {
+    evt.preventDefault();
+
+    const coffee = {
+        name: form.name.value,
+        description: form.description.value,
+        ingredients: form.ingredients.value
+    };
+
+    db.collection('coffee').add(coffee)
+        .catch(err => console.log(err));
+
+    form.name.value = '';
+    form.description.value = '';
+    form.ingredients.value = '';
+});
