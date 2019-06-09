@@ -24,12 +24,11 @@ db.collection('coffee').onSnapshot((snapshot) => {
 
         if (change.type === 'added') {
             // add the document data to the web app
-
             renderCoffee(change.doc.data(), change.doc.id);
 
         } else if (change.type === 'removed') {
             // remove the document data from the web app
-
+            removeCoffee(change.doc.id);
         }
     });
 })
@@ -51,4 +50,14 @@ form.addEventListener('submit', evt => {
     form.name.value = '';
     form.description.value = '';
     form.ingredients.value = '';
+});
+
+// deleting a coffee
+const coffeeContainer = document.querySelector('.coffees');
+coffeeContainer.addEventListener('click', evt => {
+    // console.log(evt);
+    if (evt.target.tagName === 'I') {
+        const id = evt.target.getAttribute('data-id');
+        db.collection('coffee').doc(id).delete();
+    }
 });

@@ -1,5 +1,5 @@
-const staticCacheName = 'site-static-v3';
-const dynamicCacheName = 'site-dynamic-v3';
+const staticCacheName = 'site-static-v4';
+const dynamicCacheName = 'site-dynamic-v11';
 
 const assets = [
     '/',
@@ -24,11 +24,11 @@ const limitCacheSize = (name, size) => {
             }
         })
     })
-
 };
 
 // installation of SW
 self.addEventListener('install', evt => {
+
     // console.log('service worker has been installed :D ' + evt);
 
     evt.waitUntil(
@@ -37,11 +37,11 @@ self.addEventListener('install', evt => {
             cache.addAll(assets);
         })
     );
-
 });
 
 // event activation
 self.addEventListener('activate', evt => {
+
     // console.log('service worker has been activated :D ' + evt);
 
     evt.waitUntil(
@@ -57,6 +57,7 @@ self.addEventListener('activate', evt => {
 
 // the fetch event
 self.addEventListener('fetch', evt => {
+
     console.log('fetch event ' + evt);
 
     if (evt.request.url.indexOf('firestore.googleapis.com') === -1) {

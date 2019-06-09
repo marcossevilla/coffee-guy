@@ -40,3 +40,9 @@ const renderCoffee = (data, id) => {
 
     coffees.innerHTML += html;
 };
+
+// remove coffee from DOM
+const removeCoffee = (id) => {
+    const coffee = document.querySelector(`.coffee[data-id=${id}]`);
+    coffee.remove();
+}
